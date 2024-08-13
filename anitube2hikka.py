@@ -39,22 +39,20 @@ def start_convert(user_name, token):
         'aband'
     ]
 
-    user_lists = {
-        'seen': [],
-        'will': [],
-        'watch': [],
-        'poned': [],
-        'aband': [],
-    }
+    user_lists = dict()
 
     for watch_page in lists_for_search:
         data = get_user_lists(user_name, 1, watch_page)
-        user_lists.get(watch_page).append(data)
+        user_lists.setdefault(watch_page, []).append(data)
 
-    print(user_lists)
+    #print(user_lists)
 
     for key in user_lists:
-        search_and_add_to_list(key,user_lists[key], token)
+        print(key)
+        for anime in user_lists[key]:
+            print(anime)
+            for x in anime:
+                search_and_add_to_list(x["name"], key, token)
 
     print(f"Успішно додано: {success_added_count}, не вдалося додати: {falied_added_count}")
 
