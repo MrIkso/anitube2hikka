@@ -21,7 +21,7 @@ How to get auth code to use methods associated with your profile
 Run script via terminal
 
 ```bash
-anixart2hikka.py --username your_anitube_username --token your_token
+anitube2hikka.py --username your_anitube_username --token your_token
 ```
 
 ## Documentation
